@@ -32,10 +32,12 @@ pipelines:
             - name: api_out_runs_propertyBag
         execution:
           onExecute:
+            - sleep 30s
             - echo runs > cache.file
             - add_cache_files cache.file runs.file
             - echo "state=pipeline2" > cache.txt
             - add_run_files cache.txt run_state_file
+            - add_pipeline_files cache.txt pipe_state_file
             - write_output api_out_runs_propertyBag "pipelines=$run_id"
             
       - name: api_runs_step_in
