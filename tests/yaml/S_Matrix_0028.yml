@@ -4,6 +4,8 @@ pipelines:
       - name: S_Matrix_0028
         type: Matrix
         stepMode: Bash
+        configuration:
+          nodePool: S_Matrix_0028_nodePool
         stepletMultipliers:
           environmentVariables:
            - animal: dog
